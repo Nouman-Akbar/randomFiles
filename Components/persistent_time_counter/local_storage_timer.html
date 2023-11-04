@@ -68,7 +68,10 @@
                     console.log("Timer finished!");
                     let clear_storage = setInterval(() => {
                         localStorage.clear();
-                        timer.innerHTML += `<br><code id="clear_info">Local storage cleared<code>`;
+                        timer.innerHTML += `<br>
+                        <span id="clear_info">Local storage cleared<span>
+                            <br>
+                            <small>You can run this timer again.</small>`;
                         clearInterval(clear_storage);
                     }, 5000); // 5 seconds interval
                 } else {
