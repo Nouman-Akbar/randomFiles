@@ -1,0 +1,139 @@
+*,
+body,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+@font-face {
+    font-family: Calibri-regular;
+    src: url(assets/fonts/Calibri.woff);
+}
+@font-face {
+    font-family: Calibri-light;
+    src: url(assets/fonts/calibril.woff);
+}
+@font-face {
+    font-family: Calibri-bold;
+    src: url(assets/fonts/calibrib.woff);
+}
+section.initiatives_container {
+    width: 100vw;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: aqua;
+    overflow-x: hidden !important;
+}
+
+.initiatives_flex {
+    display: block;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
+.initiatives_img,
+.initiatives_text {
+    width: 49% !important;
+}
+
+.initiatives_img {
+    padding: 20px 0 0 0;
+}
+
+.initiatives_img img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.initiatives_text {
+    padding: 10px 0 20px 20px;
+}
+
+.ini_text_heading {
+    width: 100%;
+}
+
+.ini_text_heading h2 {
+    font-size: 40px;
+    line-height: 55px;
+    font-weight: bolder;
+    font-family: Calibri-regular;
+}
+
+.ini_tick_main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.ini_tick_box {
+    width: 49%;
+    display: flex;
+    padding: 15px 10px 0 0;
+}
+
+.ini_tick_mark {
+    display: inline-block;
+    width: 30px;
+    padding: 5px 5px 0 0;
+    margin-right: 15px;
+}
+
+.ini_tick_mark img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ini_tick_text {
+    display: inline-block;
+}
+
+.ini_tick_text span {
+    font-size: 20px;
+    font-family: Calibri-light;
+    font-weight: 400;
+    vertical-align: bottom;
+}
+
+@media screen and (max-width: 992px) {
+
+    .initiatives_text {
+        padding: 20px 0 20px 10px;
+        align-self: flex-start;
+    }
+
+    .ini_text_heading h2 {
+        font-size: 34px;
+        font-weight: 400;
+    }
+
+    .ini_tick_box {
+        width: 100%;
+        padding-top: 7px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .initiatives_flex {
+        padding: 10px 10px 20px;
+    }
+
+    .initiatives_img, .initiatives_text {
+        width: 100% !important;
+        padding-left: 0;
+    }
+    .initiatives_img, .initiatives_text{
+        padding: 10px 5px 0 5px;
+    }
+    .initiatives_text{
+        padding-top: 0;
+    }
+}

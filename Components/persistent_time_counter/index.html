@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Time Reverse Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #counter {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="counter">
+        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+
+
+    <script>
+        function timer_counter() {
+            let counter_time = sessionStorage.getItem('counter') || 5740; // seconds of time
+            counter_time = parseInt(counter_time);
+
+            // Getting the elements
+            const hours_element = document.querySelector('#hours');
+            const minutes_element = document.querySelector('#minutes');
+            const seconds_element = document.querySelector('#seconds');
+
+            // Calculate the hours, minutes, and seconds
+            const hours = Math.floor(counter_time / 3600);
+            const minutes = Math.floor((counter_time % 3600) / 60);
+            const seconds = counter_time % 60;
+
+            // Displaying the time
+            hours_element.textContent = String(hours).padStart(2, '0');
+            minutes_element.textContent = String(minutes).padStart(2, '0');
+            seconds_element.textContent = String(seconds).padStart(2, '0');
+
+            if (counter_time > 0) {
+                counter_time--;
+            }
+
+            if (counter_time <= 0) {
+                // document.getElementById('minutes').style.display = 'none';
+                // document.getElementById('seconds').style.display = 'none';
+                document.querySelector("#counter").innerHTML = "Countdown Finished!";
+            }
+
+            // storing into the session
+            sessionStorage.setItem('counter', counter_time);
+            setTimeout(timer_counter, 1000); // updating in the sessionStorage
+        }
+
+        // counter running
+        timer_counter();
+
+
+    </script>
+</body>
+
+</html>

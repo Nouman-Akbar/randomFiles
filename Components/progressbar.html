@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .circular-progress {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #eee;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            z-index: 2;
+        }
+
+        .progress-bar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            background-color: #3498db;
+            transform: rotate(0deg);
+        }
+
+        .progress-fill {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            background-color: #e74c3c;
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circular-progress">
+        <div class="progress-text">0%</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const targetProgress = 65;
+            const angle = (targetProgress / 100) * 360;
+            $(".progress-fill").css("transform", `rotate(${angle}deg)`);
+            $(".progress-text").text(targetProgress + "%");
+        });
+
+    </script>
+</body>
+
+</html>

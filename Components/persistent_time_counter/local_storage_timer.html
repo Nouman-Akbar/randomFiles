@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Reverse Timer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #59c173, #a17fe0, #5d26c1);
+        }
+
+        #timer {
+            font-size: 3em;
+            color: #e36414;
+            font-weight: 700;
+            font-stretch: semi-expanded;
+            font-variant: small-caps;
+            line-height: 30px;
+        }
+
+        #clear_info {
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2px;
+            font-size: 0.8em;
+            font-weight: 800;
+            font-variant: petite-caps;
+            color: #fca311;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="timer" editable>00:00:05</span>
+
+    <script>
+        function start_timer() {
+            return new Promise((resolve) => {
+                const timer = document.querySelector('#timer');
+                let starting_time = timer.innerText;
+
+                let timer_value = localStorage.getItem('timer_value');
+                if (timer_value) {
+                    countDown(timer_value);
+                } else {
+                    countDown(timer.innerHTML);
+                }
+
+                const check_timer = setInterval(() => {
+                    if (timer.innerText === 'Timer finished!') {
+                        clearInterval(check_timer);
+                        resolve('Timer Finished');
+                    }
+                }, 1000);
+            });
+        }
+
+        async function clearLocalStorage() {
+            try {
+                const result = await start_timer();
+                if (result === 'Timer Finished') {
+                    console.log("Timer finished!");
+                    let clear_storage = setInterval(() => {
+                        localStorage.clear();
+                        timer.innerHTML += `<br><code id="clear_info">Local storage cleared<code>`;
+                        clearInterval(clear_storage);
+                    }, 5000); // 5 seconds interval
+                } else {
+                    console.log("Timer still running");
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function countDown(starting_time) {
+            let time = starting_time.split(":");
+            let hours = parseInt(time[0], 10);
+            let minutes = parseInt(time[1], 10);
+            let seconds = parseInt(time[2], 10);
+
+            let timer_interval = setInterval(update_timer, 1000);
+
+            function update_timer() {
+                if (hours === 0 && minutes === 0 && seconds === 0) {
+                    clearInterval(timer_interval);
+                    document.getElementById("timer").innerText = `Timer finished!`;
+                    return;
+                }
+
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        if (hours !== 0) {
+                            seconds = 59;
+                            minutes = 59;
+                            hours--;
+                        }
+                    } else {
+                        seconds = 59;
+                        minutes--;
+                    }
+                } else {
+                    seconds--;
+                }
+
+                let time_format = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                document.getElementById("timer").innerText = time_format;
+                localStorage.setItem('timer_value', time_format);
+            }
+        }
+
+        clearLocalStorage();
+    </script>
+</body>
+
+
+</html>

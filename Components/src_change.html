@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #image-01 {
+            width: 50%;
+            height: 60vh;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #image-01 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .btn_wrap {
+            width: 100%;
+            text-align: center;
+        }
+
+        #img_btn {
+            padding: 8px 15px;
+            border: 0;
+            border-radius: 10px;
+            background: #fa00aa;
+            margin: 10px auto;
+            color: #fff;
+            cursor: pointer;
+            pointer-events: all;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="image-01">
+        <img src="https://static.vecteezy.com/system/resources/previews/006/430/145/non_2x/technology-background-concept-circuit-board-electronic-system-futuristic-hi-tech-light-on-dark-blue-free-vector.jpg"
+            alt="Tech Photo">
+    </div>
+    <div class="btn_wrap">
+        <button id="img_btn">Change Image</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $('#img_btn').click(function () {
+            $('#image-01').find('img').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStJMEX3bKtfOgmU4tQzbneyAVCXJyW7As_kA&usqp=CAU');
+        });
+    </script>
+</body>
+
+</html>

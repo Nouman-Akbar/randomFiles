@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <title>Sticky on Scroll</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="annc_bar">
+            <span>Up to 20% Off with subscription</span>
+        </div>
+        <section class="top_sec">
+            <header class="header">
+                <nav class="header_inner">
+                    <div class="nav_buttons">
+                        <button class="menu_btn header_btn">
+                            <img src="assets/images/menu.png" alt="menu_icon">
+                        </button>
+                        <button class="close_btn header_btn">
+                            <img src="assets/images/close.png" alt="close_icon">
+                        </button>
+                    </div>
+                    <ul class="desktop_nav">
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">About BRĒZ</a></li>
+                    </ul>
+                    <div class="logo centered">
+                        <a href="/">
+                            <img src="assets/images/BREZ-Logo.svg" alt="BREZ logo">
+                        </a>
+                    </div>
+                    <div class="cart_btn_sec">
+                        <button class="header_btn cart_btn">
+                            <a href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="28" viewBox="0 0 36 28"
+                                    fill="none">
+                                    <path d="M4 11H32L28 27H8L4 11Z" stroke="black" stroke-width="2"
+                                        stroke-linejoin="round">
+                                    </path>
+                                    <path d="M1 11H35" stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M8 11L14 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M28 11L22 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+        </section>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".close_btn").hide();
+            $(".menu_btn").click(function () {
+                $(".desktop_nav").slideDown(200);
+                $(".close_btn").show();
+                $(this).hide();
+            });
+            $(".close_btn").click(function () {
+                $(".desktop_nav").slideUp(200);
+                $(".menu_btn").show();
+                $(this).hide();
+            });
+            $(window).on('scroll', function () {
+                scrollFunction();
+            });
+            function scrollFunction() {
+                if ($(document).scrollTop() > 29) {
+                    $('.header').css('position', 'fixed');
+                    $('.header').css('top', '0');
+                    $('.header').css('width', '100vw');
+                    $('.header_inner').css('background', '#fff');
+
+                } else {
+                    $('.header').css('position', 'relative');
+                    $('.header_inner').css('background', 'transparent');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

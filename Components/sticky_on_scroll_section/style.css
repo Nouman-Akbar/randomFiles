@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,
+body,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+section {
+    width: 100vw;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+
+.header,
+.banner {
+    height: 600px;
+}
+
+.elementor-container {
+    width: 100% !important;
+    max-width: 100vw;
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    border: 0;
+}
+
+.elementor-col {
+    width: 29.5%;
+}
+
+.main_voltage_col,
+.main_battary_col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main_battary_col {
+    padding-top: 28%;
+}
+
+.product_main,
+.prod_img,
+.prod_text {
+    width: 100%;
+}
+
+.prod_text {
+    padding: 30px 10%;
+    text-align: center;
+}
+
+.prod_img {
+    overflow: hidden;
+}
+
+.prod_img img {
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.product_main:hover>.prod_img>img {
+    transform: scale(1.2);
+}
+
+.prod_heading {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.prod_heading h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 65px;
+    font-weight: 800;
+}
+
+.prod_text .prod_description {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5em;
+    color: #324A6D;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main_prod_col .prod_heading {
+    position: fixed;
+    bottom: 0;
+    transform: translateY(-100vh);
+    transition: all 0.5s ease-in;
+    width: 400px;
+}
+
+.prod_bottom_space {
+    height: 250px;
+}
+
+@media screen and (max-width: 992px) {
+
+    .header,
+    .banner {
+        height: 0;
+        display: none;
+    }
+
+    .elementor-col {
+        width: 49%;
+    }
+
+    .elementor-col:first-child {
+        width: 100%;
+    }
+
+    .main_prod_col .prod_heading {
+        position: relative;
+        transform: translateY(0);
+        font-size: 20px;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .elementor-col {
+        width: 100%;
+    }
+    .main_battary_col{
+        padding-top: 0;
+    }
+    .prod_bottom_space{
+        display: none;
+    }
+}

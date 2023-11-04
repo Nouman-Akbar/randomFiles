@@ -1,0 +1,258 @@
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+*,
+body,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+section.parcca_header {
+    width: 100vw;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+.parcca_header_container {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_box {
+    width: 33%;
+}
+
+.header_btn {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+svg {
+    width: 35px;
+    height: 35px;
+    margin-top: -10px;
+}
+
+.left_btn_main {
+    display: none;
+}
+
+.left_btn_main .header_btn {
+    display: none;
+}
+
+.left_btn_main .header_btn.active {
+    display: block;
+}
+
+.parcca_logo_main {
+    max-height: 80px;
+}
+
+.parcca_logo {
+    padding: 10px 5px;
+    display: block;
+}
+
+.parcca_logo img {
+    width: 100%;
+    max-width: 140px;
+    margin: 0 auto;
+}
+
+
+.parcca_desk_nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.parcca_nav {
+    position: relative;
+}
+
+
+
+.parcca_nav .nav_item {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.nav_item .material-symbols-outlined {
+    transition: all 0.2s ease-in-out;
+}
+
+.nav_dropdown .nav_item {
+    padding: 10px 0;
+}
+
+.nav_dropdown .nav_item {
+    justify-content: start !important;
+}
+
+.nav_item_text {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav_dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background-color: #000;
+    padding: 10px 20px;
+}
+
+.nav_item:hover {
+    padding-bottom: 3px !important;
+}
+
+.nav_item:hover .nav_item_text {
+    border-bottom: 2px solid #fff;
+}
+
+.nav_dropdown .nav_item:hover {
+    padding-bottom: 8px !important;
+}
+
+.nav_item:hover .material-symbols-outlined {
+    transform: rotate(-180deg);
+}
+
+.nav_dropdown {
+    display: none;
+}
+
+.shop_nav:hover~.shop_drop {
+    display: block;
+}
+
+.lab_nav:hover~.lab_drop {
+    display: block;
+}
+
+.comm_nav:hover~.comm_drop {
+    display: block;
+}
+
+.contact_nav:hover~.contact_drop {
+    display: block;
+}
+
+.right_btn_main {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.parcca_mob_nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: #000;
+    width: 100vw;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: all 0.2s ease-in-out;
+}
+
+.parcca_mob_nav.active {
+    transform: translateX(0%);
+}
+
+.parcca_mob_nav .nav_item {
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.parcca_mob_nav .nav_dropdown {
+    position: fixed;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100%;
+    transform: translateX(200%);
+    transition: all 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.parcca_mob_nav .nav_dropdown.active {
+    transform: translateX(0%);
+}
+
+.mob_drop_back .mob_nav_back {
+    justify-content: start;
+}
+
+.mob_nav_back {
+    padding: 0 0 20px 0;
+}
+
+.mob_nav_back .nav_item_text {
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .header_box {
+        width: 27%;
+    }
+
+    .parcca_logo_main {
+        width: 45%;
+    }
+
+    .parcca_desk_nav {
+        display: none;
+    }
+
+    .left_btn_main {
+        display: block;
+    }
+
+    .parcca_mob_nav {
+        display: block;
+    }
+
+    .nav_dropdown .nav_item:hover {
+        padding-bottom: 18px;
+    }
+
+    .nav_item:hover .material-symbols-outlined {
+        transform: rotate(0deg);
+    }
+}

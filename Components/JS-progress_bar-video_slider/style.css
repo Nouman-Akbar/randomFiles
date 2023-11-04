@@ -1,0 +1,217 @@
+@font-face {
+    font-family: Harmonia-Regular;
+    src: url(assets/HarmoniaSans-regular.woff);
+}
+
+@font-face {
+    font-family: Harmonia-bold;
+    src: url(assets/Harmonia\ Sans\ W01\ Bold.woff);
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Harmonia-Regular; */
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+section.inner{
+    width: 100%;
+    max-width: 100vw;
+    background-color: #eee;
+}
+.sli-container{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto; /*1st mistake resolved */
+    padding: 0 70px;
+}
+.video-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-block: 50px;
+}
+
+.video_slider {
+    width: 60%;
+}
+
+.video_slider .item {
+    position: relative;
+    height: 550px;
+}
+
+.slick-slide {
+    margin: 0 10px;
+    cursor: grab;
+}
+
+.item video {
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item .play_btn {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    transform: translate(-50% -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    font-size: 1.6rem;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.item .play_btn>svg {
+    background-color: #e3d2fd;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    fill: #fff;
+    stroke: #fff;
+    background-color: #e3d2fd;
+    border-radius: 50%;
+    opacity: 0.9;
+}
+
+.item .play_btn>svg>path {
+    fill: rgba(255, 255, 255, 0.7);
+}
+
+.text_box {
+    width: 40%;
+    padding: 0 10px 0 40px;
+}
+
+.text_heading {
+    font-size: 40px;
+    font-weight: 700;
+    color: #2e2a39;
+    margin-bottom: 10px;
+    line-height: 45px;
+}
+
+.feature_section {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.feature_item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.progress {
+    min-width: 70px;
+    min-height: 70px;
+    position: relative;
+    border-radius: 50%;
+    background: conic-gradient(#7069bc 3.6deg, #e3d2fd 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.progress_inner {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Harmonia-Regular;
+}
+
+.progress_inner span {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.feature_text, .res_para{
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    color: #777;
+    align-self: flex-end;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+.res_para {
+    max-width: 100%;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: initial;
+    padding: 5px 0px;
+    margin: 10px 0 20px;
+}
+
+.buy_btn {
+    padding: 15px 35px;
+    box-sizing: content-box;
+    border: 0;
+    border-radius: 5px;
+    background-color: #7069bc;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Harmonia-Bold;
+    font-size: 17px;
+    text-align: center;
+    display: inline;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.buy_btn>span {
+    background: url('https://bleame.com/cdn/shop/t/22/assets/sl-finger.png') left center no-repeat;
+    background-size: 30px auto;
+    padding-left: 40px;
+}
+
+@media screen and (max-width: 992px) {
+    .sli-container{
+        padding: 0 10px;
+    }
+    .video_slider {
+        width: 50%;
+    }
+    .text_box {
+        width: 50%;
+        padding: 30px 10px 0 30px;
+    }
+}
+@media screen and (max-width: 767px){
+    .video_slider {
+        width: 100%;
+    }
+    .text_box {
+        width: 100%;
+        padding: 30px 10px 0 10px;
+    }
+}
